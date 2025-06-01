@@ -344,14 +344,26 @@ const App = () => {
       <div className="main-content">
         <div className="editor-section">
           <Editor
-            height="70vh"
+            height="100%"
             language={language}
             value={code}
             onChange={handleCodeChange}
             theme="vs-dark"
             options={{
               minimap: { enabled: false },
-              fontSize: 15
+              fontSize: 14,
+              lineNumbers: 'on',
+              scrollBeyondLastLine: false,
+              automaticLayout: true,
+              wordWrap: 'on',
+              wrappingStrategy: 'advanced',
+              scrollbar: {
+                vertical: 'visible',
+                horizontal: 'visible',
+                useShadows: false,
+                verticalScrollbarSize: 10,
+                horizontalScrollbarSize: 10
+              }
             }}
           />
         </div>
