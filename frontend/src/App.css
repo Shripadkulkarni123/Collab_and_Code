@@ -409,3 +409,166 @@ body{
   background-color: #f44336;
 }
 
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  .editor {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 2px solid #3a3a3a;
+  }
+
+  .main-content {
+    height: calc(100vh - 300px);
+  }
+
+  .editor-section {
+    height: 60%;
+  }
+
+  .compiler-section {
+    height: 40%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .join-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .main-heading {
+    font-size: 2rem;
+    margin: 0 0 2rem 0;
+    text-align: center;
+  }
+
+  .joinform {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .editor {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .main-content {
+    height: calc(100vh - 400px);
+  }
+
+  .compiler-header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .run-btn {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main-heading {
+    font-size: 1.5rem;
+  }
+
+  .joinform {
+    padding: 20px;
+  }
+
+  .roominfo h2 {
+    font-size: 18px;
+  }
+
+  .roominfo h3 {
+    font-size: 16px;
+  }
+
+  .editor-section {
+    height: 50%;
+  }
+
+  .compiler-section {
+    height: 50%;
+  }
+
+  .input-area textarea {
+    height: 40px;
+  }
+
+  .output-area pre {
+    font-size: 14px;
+  }
+}
+
+/* Make the editor and compiler sections more flexible */
+.editor-section {
+  flex: 1;
+  min-height: 300px;
+  position: relative;
+}
+
+.compiler-section {
+  flex: 0 0 auto;
+  min-height: 200px;
+  max-height: 40vh;
+}
+
+/* Improve sidebar responsiveness */
+.sidebar {
+  flex: 0 0 auto;
+  min-width: 200px;
+  max-width: 300px;
+  overflow-y: auto;
+}
+
+/* Make the main content area more flexible */
+.main-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Improve form responsiveness */
+.joinform input,
+.joinform button {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Make the users list more compact on smaller screens */
+.users-list {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+/* Improve button and input touch targets on mobile */
+@media (hover: none) {
+  .joinform button,
+  .run-btn,
+  .leaveroom {
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  .joinform input {
+    padding: 15px;
+    font-size: 16px;
+  }
+}
+
+/* Add smooth transitions for responsive changes */
+.editor,
+.sidebar,
+.main-content,
+.editor-section,
+.compiler-section {
+  transition: all 0.3s ease-in-out;
+}
+
