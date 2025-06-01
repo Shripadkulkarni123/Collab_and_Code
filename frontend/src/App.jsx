@@ -6,6 +6,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { v4 as uuidv4 } from 'uuid';  // Fixed import
 
+// Add mobile detection
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
 const socket = io(import.meta.env.VITE_BACKEND_URL, {
   transports: ['websocket', 'polling'],
   reconnection: true,
@@ -158,6 +161,28 @@ const App = () => {
     window.addEventListener("beforeunload", handleBeforeUnload);
     return () => window.removeEventListener("beforeunload", handleBeforeUnload);
   }, [roomid, userName]);
+
+  useEffect(() => {
+    if (isMobile) {
+      toast.warning("For better experience, please switch to desktop mode. This is a code editor application.", {
+        position: "top-center",
+        autoClose: false,
+        theme: "dark",
+        closeOnClick: false,
+        draggable: false,
+        closeButton: false,
+        style: {
+          background: "#ff9800",
+          color: "white",
+          fontSize: "16px",
+          padding: "20px",
+          textAlign: "center",
+          maxWidth: "90vw",
+          margin: "0 auto"
+        }
+      });
+    }
+  }, []);
 
   const joinRoom = () => {
     if (roomid && userName) {
